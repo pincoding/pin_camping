@@ -1,17 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
-import { getbasedList, getsearchList } from "./api";
+
 import { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { getbasedList, getsearchList } from "../../api";
+
+const Wrap = styled.div`
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+`;
+const Header = styled.div`
+  height: 70px;
+  background-color: yellow;
+`;
+const Logo = styled.div``;
 
 const Container = styled.div`
-  height: 400px;
+  min-height: 100vh;
   background-color: teal;
+  img {
+    width: 100%;
+    height: 400px;
+  }
 `;
 
 const Form = styled.form``;
 
-const App = () => {
+export const Home = () => {
   const [compingQuery, setcompingQuery] = useState("");
   const [submitdata, setsubmitData] = useState("");
   //
@@ -37,24 +53,24 @@ const App = () => {
     queryFn: getsearchList,
   });
   console.log(data);
-  // console.log(query);
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit(campingHandler)}>
-        <input
-          {...register("keyword", {
-            required: "키워드릴 입력해주세요",
-          })}
-          type="text"
-          placeholder="입력하샘"
-        ></input>
-      </Form>
-      <h1>{submitdata && submitdata}</h1>
-    </Container>
+    <Wrap>
+      <Header>
+        <Logo>Pin_camping</Logo>
+      </Header>
+      <Container>
+        <Form onSubmit={handleSubmit(campingHandler)}>
+          <input
+            {...register("keyword", {
+              required: "키워드릴 입력해주세요",
+            })}
+            type="text"
+            placeholder="입력하샘"
+          ></input>
+        </Form>
+        <h1>{submitdata && submitdata}</h1>
+      </Container>
+    </Wrap>
   );
 };
-
-export default App;
-// 기본 캠핑 주소 위치 불러오기 기능 끝
-// 검색후 키워드 기능 끝
