@@ -14,6 +14,6 @@ export const imgUrl = [
     id: 2,
     imgNmae: "캠핑광고3",
     imgUrl:
-      "https://static.news.zumst.com/images/122/2022/09/12/28d6aac9d6c24e9faa3cbe63d32a1952.jpg",
+      "https://cdn.newsworker.co.kr/news/photo/202106/118277_132066_4328.png",
   },
 ];

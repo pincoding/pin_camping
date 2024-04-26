@@ -9,11 +9,14 @@ export const GlobalStyled = createGlobalStyle`
 
     body{
         font-family: "Noto Sans KR", sans-serif;
-
     }
     
     img{
         width: 100%;
         display: block;
+    }
+    a{
+        text-decoration: none;
+        color: black;
     }
 `;

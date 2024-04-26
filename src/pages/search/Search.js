@@ -1,31 +1,31 @@
-import { useQuery } from "@tanstack/react-query";
-import { getbasedList, getsearchList } from "./api";
 import { useState } from "react";
-import styled from "styled-components";
+import { Sec01 } from "../Home/Sec01";
+import { useQuery } from "@tanstack/react-query";
+import { getsearchList } from "../../api";
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 
 const Container = styled.div`
-  height: 400px;
-  background-color: teal;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  img {
+    width: 100%;
+    height: 400px;
+  }
 `;
 
 const Form = styled.form``;
 
-const App = () => {
-  const [compingQuery, setcompingQuery] = useState("");
+export const Search = () => {
   const [submitdata, setsubmitData] = useState("");
-  //
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
-
-  const { data } = useQuery({
-    queryKey: ["basedList", compingQuery],
-    queryFn: getbasedList,
-  });
 
   const campingHandler = (data) => {
     const { keyword } = data;
@@ -36,25 +36,21 @@ const App = () => {
     queryKey: ["searchList", submitdata],
     queryFn: getsearchList,
   });
-  console.log(data);
-  // console.log(query);
 
+  const queryObj = query && query?.data?.response?.body?.items?.item;
   return (
     <Container>
       <Form onSubmit={handleSubmit(campingHandler)}>
         <input
           {...register("keyword", {
-            required: "키워드릴 입력해주세요",
+            required: "키워드를 입력해주세요",
           })}
           type="text"
           placeholder="입력하샘"
         ></input>
       </Form>
-      <h1>{submitdata && submitdata}</h1>
+
+      <Sec01 ConDb={queryObj}></Sec01>
     </Container>
   );
 };
-
-export default App;
-// 기본 캠핑 주소 위치 불러오기 기능 끝
-// 검색후 키워드 기능 끝

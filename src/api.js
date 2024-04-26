@@ -15,7 +15,7 @@ const instance = axios.create({
 
 export const getbasedList = ({ queryKey }) => {
   const [basedList, _] = queryKey;
-  return instance.get(basedList).then((res) => res.data);
+  return instance.get(`${basedList}`).then((res) => res.data);
 };
 
 export const getsearchList = ({ queryKey }) => {
