@@ -1,21 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
 import { getbasedList, getsearchList } from "../../api";
 import { imgUrl } from "../../components/imgUrl";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Link } from "react-router-dom";
-import { Sec01 } from "./Sec01";
-//아이콘
-import { AiOutlineHome } from "react-icons/ai";
-import { IoSearch } from "react-icons/io5";
-import { LuUser2 } from "react-icons/lu";
-import { Loding } from "../../components/Loding";
 
-//아이콘
+import { Sec01 } from "./Sec01";
+
+import { Loding } from "../../components/Loding";
+import { IconContants } from "./IconContants";
 
 const Wrap = styled.div`
   max-width: 500px;
@@ -40,25 +34,6 @@ const Con = styled.div`
   }
 `;
 
-// 이미지 컨텐츠
-//아이콘
-
-const IconWarp = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-  /* background-color: blue; */
-`;
-const IconCon = styled.div`
-  /* background-color: #98bbeb; */
-  border: 1px solid #dbdbdb;
-  padding: 20px;
-  border-radius: 50%;
-  svg {
-    color: #535353;
-    font-size: 24px;
-  }
-`;
 export const Home = () => {
   const [compingQuery, setcompingQuery] = useState("");
   const [mainData, setmainData] = useState();
@@ -104,23 +79,7 @@ export const Home = () => {
               </Swiper>
             </ImgWarp>
 
-            <IconWarp>
-              <Link to={"/"}>
-                <IconCon>
-                  <AiOutlineHome />
-                </IconCon>
-              </Link>
-              <Link to={"/search"}>
-                <IconCon>
-                  <IoSearch />
-                </IconCon>
-              </Link>
-              <Link to={"/login"}>
-                <IconCon>
-                  <LuUser2 />
-                </IconCon>
-              </Link>
-            </IconWarp>
+            <IconContants />
 
             <h1 style={{ marginLeft: "20px", fontSize: "18PX" }}>추천캠핑</h1>
             <Sec01 ConDb={dataObj}></Sec01>

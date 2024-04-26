@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getsearchList } from "../../api";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
+import { IconContants } from "../Home/IconContants";
 
 const Wrap = styled.div`
   max-width: 500px;
@@ -16,7 +17,15 @@ const Wrap = styled.div`
 
 const Container = styled.div``;
 
-const Form = styled.form``;
+const Form = styled.form`
+  padding: 20px 30px 20px 20px;
+  input {
+    all: unset;
+    width: 100%;
+    border-bottom: 1px solid #666;
+    padding: 5px;
+  }
+`;
 
 export const Search = () => {
   const [submitdata, setsubmitData] = useState("");
@@ -42,13 +51,14 @@ export const Search = () => {
   return (
     <Wrap style={{ paddingTop: "100px" }}>
       <Container>
+        <IconContants />
         <Form onSubmit={handleSubmit(campingHandler)}>
           <input
             {...register("keyword", {
               required: "키워드를 입력해주세요",
             })}
             type="text"
-            placeholder="입력하샘"
+            placeholder="지역을 검색해주세요"
           ></input>
         </Form>
 
