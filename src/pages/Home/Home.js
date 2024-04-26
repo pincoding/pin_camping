@@ -12,8 +12,9 @@ import { Sec01 } from "./Sec01";
 //아이콘
 import { AiOutlineHome } from "react-icons/ai";
 import { IoSearch } from "react-icons/io5";
-import { IoMdLogIn } from "react-icons/io";
-import { AiOutlinePicture } from "react-icons/ai";
+import { LuUser2 } from "react-icons/lu";
+import { Loding } from "../../components/Loding";
+
 //아이콘
 
 const Wrap = styled.div`
@@ -30,7 +31,7 @@ const ImgWarp = styled.div`
   padding: 0 20px;
 `;
 const Con = styled.div`
-  height: 140px;
+  height: 400px;
   overflow: hidden;
   border-radius: 12px;
   img {
@@ -40,7 +41,6 @@ const Con = styled.div`
 `;
 
 // 이미지 컨텐츠
-
 //아이콘
 
 const IconWarp = styled.div`
@@ -50,17 +50,23 @@ const IconWarp = styled.div`
   /* background-color: blue; */
 `;
 const IconCon = styled.div`
-  background-color: #98bbeb;
-  padding: 14px;
+  /* background-color: #98bbeb; */
+  border: 1px solid #dbdbdb;
+  padding: 20px;
   border-radius: 50%;
   svg {
-    color: white;
+    color: #535353;
     font-size: 24px;
   }
 `;
 export const Home = () => {
   const [compingQuery, setcompingQuery] = useState("");
   const [mainData, setmainData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const { data } = useQuery({
     queryKey: ["basedList", compingQuery],
@@ -79,43 +85,54 @@ export const Home = () => {
   };
 
   return (
-    <Wrap>
-      {/*  */}
-      <ImgWarp>
-        <Swiper {...params}>
-          {imgUrl.map((data) => (
-            <SwiperSlide key={data.id}>
-              <Con>
-                <img src={data.imgUrl} alt={data.imgNmae}></img>
-              </Con>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </ImgWarp>
+    <div>
+      {loading ? (
+        <Loding />
+      ) : (
+        <>
+          <Wrap>
+            {/*  */}
+            <ImgWarp>
+              <Swiper {...params}>
+                {imgUrl.map((data) => (
+                  <SwiperSlide key={data.id}>
+                    <Con>
+                      <img src={data.imgUrl} alt={data.imgNmae}></img>
+                    </Con>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </ImgWarp>
 
-      <IconWarp>
-        <Link to={"/"}>
-          <IconCon>
-            <AiOutlineHome />
-          </IconCon>
-        </Link>
-        <Link to={"/search"}>
-          <IconCon>
-            <IoSearch />
-          </IconCon>
-        </Link>
-        <Link to={"/login"}>
-          <IconCon>
-            <IoMdLogIn />
-          </IconCon>
-        </Link>
-        <IconCon>
-          <AiOutlinePicture />
-        </IconCon>
-      </IconWarp>
+            <IconWarp>
+              <Link to={"/"}>
+                <IconCon>
+                  <AiOutlineHome />
+                </IconCon>
+              </Link>
+              <Link to={"/search"}>
+                <IconCon>
+                  <IoSearch />
+                </IconCon>
+              </Link>
+              <Link to={"/login"}>
+                <IconCon>
+                  <LuUser2 />
+                </IconCon>
+              </Link>
+            </IconWarp>
 
-      <h1 style={{ marginLeft: "20px", fontSize: "18PX" }}>추천캠핑</h1>
-      <Sec01 ConDb={dataObj}></Sec01>
-    </Wrap>
+            <h1 style={{ marginLeft: "20px", fontSize: "18PX" }}>추천캠핑</h1>
+            <Sec01 ConDb={dataObj}></Sec01>
+          </Wrap>
+        </>
+      )}
+    </div>
   );
 };
+// scrollTo({
+//   top : 0,
+//   b : "smooth"
+// })
+
+// use로케이션 : 경로가 바뀌면

@@ -13,6 +13,14 @@ const instance = axios.create({
   },
 });
 
+const kakoKey = "bcfd4a8c9041cb3b3916cb8d3429b320";
+const kakaoMap = axios.create({
+  baseURL: `https://dapi.kakao.com/v2/local/search/address.`,
+  headers: {
+    Authorization: `KakaoAK ${kakoKey}`,
+  },
+});
+
 export const getbasedList = ({ queryKey }) => {
   const [basedList, _] = queryKey;
   return instance.get(`${basedList}`).then((res) => res.data);

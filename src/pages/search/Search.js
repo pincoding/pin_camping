@@ -40,7 +40,7 @@ export const Search = () => {
 
   const queryObj = query && query?.data?.response?.body?.items?.item;
   return (
-    <Wrap>
+    <Wrap style={{ paddingTop: "100px" }}>
       <Container>
         <Form onSubmit={handleSubmit(campingHandler)}>
           <input
