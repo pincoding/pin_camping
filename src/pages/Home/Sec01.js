@@ -2,29 +2,28 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const OutImg = styled.div`
-  background-color: gray;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
 `;
-const OutCon = styled.div``;
+const OutCon = styled.div`
+  border: 1px solid #ddd;
+  height: 300px;
+`;
 const BoxImg = styled.div`
   height: 200px;
   overflow: hidden;
+  padding: 10px;
   img {
     object-fit: cover;
     height: 100%;
     border-radius: 20px;
   }
 `;
-const TextConOne = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
+const TextCon = styled.div`
   line-height: 24px;
-`;
-const TextConTwo = styled.div``;
-const TextBoxleft = styled.div``;
-const ConBox = styled.div`
-  display: flex;
-  flex-direction: column;
+  margin-left: 10px;
 `;
 
 export const Sec01 = ({ ConDb }) => {
@@ -32,20 +31,15 @@ export const Sec01 = ({ ConDb }) => {
     <OutImg>
       {ConDb &&
         ConDb.map((data) => (
-          <Link to={`/detail/${data.contentId}`}>
-            <OutCon key={data.contentId}>
+          <Link key={data.contentId} to={`/detail/${data.contentId}`}>
+            <OutCon>
               <BoxImg>
                 <img src={data.firstImageUrl} alt={data.facltNm}></img>
               </BoxImg>
-              <TextConOne>
-                <TextBoxleft>
-                  <h1>{data.facltNm}</h1>
-                  <ConBox>
-                    <p>{data.addr1}</p>
-                  </ConBox>
-                </TextBoxleft>
-              </TextConOne>
-              <TextConTwo></TextConTwo>
+              <TextCon>
+                <h1>{data.facltNm}</h1>
+                <p>{data.addr1}</p>
+              </TextCon>
             </OutCon>
           </Link>
         ))}

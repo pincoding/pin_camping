@@ -38,16 +38,15 @@ const Header = styled.div`
 `;
 const Logo = styled.div``;
 
-const Container = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  background-color: teal;
-  padding: 20px;
-  img {
-    width: 100%;
-    height: 400px;
-  }
-`;
+// const Container = styled.div`
+//   width: 100%;
+//   min-height: 100vh;
+//   background-color: teal;
+//   padding: 20px;
+//   img {
+//     width: 100%;
+//   }
+// `;
 
 const ImgWarp = styled.div`
   margin-top: 20px;
@@ -141,9 +140,8 @@ export const Home = () => {
         </IconCon>
       </IconWarp>
 
-      <Container>
-        <Sec01 ConDb={dataObj}></Sec01>
-      </Container>
+      <h1 style={{ marginLeft: "20px", fontSize: "18PX" }}>추천캠핑</h1>
+      <Sec01 ConDb={dataObj}></Sec01>
     </Wrap>
   );
 };
