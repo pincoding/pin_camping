@@ -8,8 +8,8 @@ const OutImg = styled.div`
   padding: 10px;
 `;
 const OutCon = styled.div`
-  border: 1px solid #ddd;
-  height: 300px;
+  /* border: 1px solid #e8eaf6; */
+  height: 260px;
 `;
 const BoxImg = styled.div`
   height: 200px;
@@ -18,7 +18,7 @@ const BoxImg = styled.div`
   img {
     object-fit: cover;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 `;
 const TextCon = styled.div`
@@ -38,7 +38,7 @@ export const Sec01 = ({ ConDb }) => {
               </BoxImg>
               <TextCon>
                 <h1>{data.facltNm}</h1>
-                <p>{data.addr1}</p>
+                <p>{data.addr1.slice(0, 16)}...</p>
               </TextCon>
             </OutCon>
           </Link>

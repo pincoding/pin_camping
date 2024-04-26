@@ -18,38 +18,15 @@ import { AiOutlinePicture } from "react-icons/ai";
 
 const Wrap = styled.div`
   max-width: 500px;
+  min-height: 100vh;
   width: 100%;
   margin: 0 auto;
+  padding-top: 90px;
   background-color: white;
   box-shadow: 0px 0px 5px 5px #e8eaf6;
 `;
-const Header = styled.div`
-  height: 70px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  a {
-    font-weight: 700;
-    font-size: 28px;
-    /* color: #98bbeb; */
-    color: black;
-  }
-`;
-const Logo = styled.div``;
-
-// const Container = styled.div`
-//   width: 100%;
-//   min-height: 100vh;
-//   background-color: teal;
-//   padding: 20px;
-//   img {
-//     width: 100%;
-//   }
-// `;
 
 const ImgWarp = styled.div`
-  margin-top: 20px;
   padding: 0 20px;
 `;
 const Con = styled.div`
@@ -91,7 +68,7 @@ export const Home = () => {
   });
   const dataObj = data && data?.response?.body?.items?.item;
   // console.log(query && query?.data?.response?.body?.items?.item);
-
+  console.log(data);
   console.log(dataObj);
   const params = {
     spaceBetween: 20,
@@ -103,11 +80,6 @@ export const Home = () => {
 
   return (
     <Wrap>
-      <Header>
-        <Link>
-          <Logo>캠사캠핑</Logo>
-        </Link>
-      </Header>
       {/*  */}
       <ImgWarp>
         <Swiper {...params}>
@@ -132,9 +104,11 @@ export const Home = () => {
             <IoSearch />
           </IconCon>
         </Link>
-        <IconCon>
-          <IoMdLogIn />
-        </IconCon>
+        <Link to={"/login"}>
+          <IconCon>
+            <IoMdLogIn />
+          </IconCon>
+        </Link>
         <IconCon>
           <AiOutlinePicture />
         </IconCon>
