@@ -28,6 +28,7 @@ export const getbasedList = ({ queryKey }) => {
 
 export const getsearchList = ({ queryKey }) => {
   const [searchList, submitdata] = queryKey;
+
   return instance
     .get(`${searchList}?keyword=${submitdata}`)
     .then((res) => res.data);

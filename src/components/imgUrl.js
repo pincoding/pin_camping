@@ -13,7 +13,6 @@ export const imgUrl = [
   {
     id: 2,
     imgNmae: "캠핑광고3",
-    imgUrl:
-      "https://cdn.newsworker.co.kr/news/photo/202106/118277_132066_4328.png",
+    imgUrl: "https://cdn.hkbs.co.kr/news/photo/202204/675677_415461_3725.jpg",
   },
 ];

@@ -34,7 +34,6 @@ export const Search = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   const campingHandler = (data) => {
@@ -48,6 +47,8 @@ export const Search = () => {
   });
 
   const queryObj = query && query?.data?.response?.body?.items?.item;
+  console.log(queryObj);
+
   return (
     <Wrap style={{ paddingTop: "100px" }}>
       <Container>
@@ -61,7 +62,6 @@ export const Search = () => {
             placeholder="지역을 검색해주세요"
           ></input>
         </Form>
-
         <Sec01 ConDb={queryObj}></Sec01>
       </Container>
     </Wrap>

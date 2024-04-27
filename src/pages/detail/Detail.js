@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getbasedList } from "../../api";
+import { getbasedList, getsearchList } from "../../api";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -22,15 +22,23 @@ const ImgWarp = styled.div``;
 
 export const Detail = () => {
   const [compingQuery, setcompingQuery] = useState("");
+  const [submitdata, setsubmitData] = useState("");
 
   const { id } = useParams();
+
   console.log(id);
   const { data } = useQuery({
     queryKey: [`basedList`, compingQuery],
     queryFn: getbasedList,
   });
-  const dataObj = data && data?.response?.body?.items?.item;
 
+  const query = useQuery({
+    queryKey: ["searchList", submitdata],
+    queryFn: getsearchList,
+  });
+  // console.log(submitdata);
+
+  const dataObj = data && data?.response?.body?.items?.item;
   console.log(dataObj && dataObj.filter((data) => data.contentId === id));
 
   return (
