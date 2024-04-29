@@ -26,12 +26,12 @@ const TextCon = styled.div`
   margin-left: 10px;
 `;
 
-export const Sec01 = ({ ConDb }) => {
+export const Sec01 = ({ condb }) => {
 
   return (
     <OutImg>
-      {ConDb &&
-        ConDb.map((data) => (
+      {condb &&
+        condb.map((data) => (
           // console.log(data.contentId)
           
           <Link key={data.contentId} to={`/detail/${data.doNm}/${data.contentId}`} state={{result:data}}>

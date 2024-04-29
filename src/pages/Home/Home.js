@@ -66,7 +66,6 @@ export const Home = () => {
       ) : (
         <>
           <Wrap>
-            {/*  */}
             <ImgWarp>
               <Swiper {...params}>
                 {imgUrl.map((data) => (
@@ -82,7 +81,7 @@ export const Home = () => {
             <IconContants />
 
             <h1 style={{ marginLeft: "20px", fontSize: "18px" }}>추천캠핑</h1>
-            <Sec01 ConDb={dataObj}></Sec01>
+            <Sec01 condb={dataObj}></Sec01>
           </Wrap>
         </>
       )}
