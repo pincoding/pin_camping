@@ -9,6 +9,7 @@ export const GlobalStyled = createGlobalStyle`
 
     body{
         font-family: "Noto Sans KR", sans-serif;
+        letter-spacing: -1px;
     }
     
     img{

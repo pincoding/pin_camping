@@ -5,11 +5,11 @@ import { getbasedList, getsearchList } from "../../api";
 import { imgUrl } from "../../components/imgUrl";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import { Sec01 } from "./Sec01";
-
 import { Loding } from "../../components/Loding";
 import { IconContants } from "./IconContants";
+import { Autoplay } from "swiper/modules";
+import SwiperCore from "swiper";
 
 const Wrap = styled.div`
   max-width: 500px;
@@ -51,11 +51,14 @@ export const Home = () => {
   // console.log(query && query?.data?.response?.body?.items?.item);
   console.log(data);
   console.log(dataObj);
+
+  SwiperCore.use([Autoplay]);
+
   const params = {
     spaceBetween: 20,
     slidesPerView: 1,
-    autoPlay: {
-      delay: 1000,
+    autoplay: {
+      delay: 4000,
     },
   };
 
