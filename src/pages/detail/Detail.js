@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getbasedList, getsearchList } from "../../api";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { IconContants } from "../Home/IconContants";
 
@@ -25,21 +25,28 @@ export const Detail = () => {
   const [submitdata, setsubmitData] = useState("");
 
   const { id } = useParams();
+  const {doNm} = useParams();
+  const loc = useLocation();
+  // console.log(doNm)
 
-  console.log(id);
+
+
+  console.log(loc?.state);
   const { data } = useQuery({
-    queryKey: [`basedList`, compingQuery],
+    queryKey: [`basedList`],
     queryFn: getbasedList,
   });
 
-  const query = useQuery({
-    queryKey: ["searchList", submitdata],
-    queryFn: getsearchList,
-  });
-  // console.log(submitdata);
+  // const query = useQuery({
+  //   queryKey: ["searchList", doNm],
+  //   queryFn: getsearchList,
+  // });
 
-  const dataObj = data && data?.response?.body?.items?.item;
-  console.log(dataObj && dataObj.filter((data) => data.contentId === id));
+
+  // console.log(data);
+
+  // const dataObj = data && data?.response?.body?.items?.item;
+  // console.log(dataObj && dataObj.filter((data) => data.contentId === id));
 
   return (
     <Wrap>

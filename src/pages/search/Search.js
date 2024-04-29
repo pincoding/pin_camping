@@ -41,12 +41,12 @@ export const Search = () => {
     setsubmitData(keyword);
   };
 
-  const query = useQuery({
+  const queryValue = useQuery({
     queryKey: ["searchList", submitdata],
     queryFn: getsearchList,
   });
 
-  const queryObj = query && query?.data?.response?.body?.items?.item;
+  const queryObj = queryValue && queryValue?.data?.response?.body?.items?.item;
   console.log(queryObj);
 
   return (

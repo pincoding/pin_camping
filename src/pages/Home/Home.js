@@ -81,7 +81,7 @@ export const Home = () => {
 
             <IconContants />
 
-            <h1 style={{ marginLeft: "20px", fontSize: "18PX" }}>추천캠핑</h1>
+            <h1 style={{ marginLeft: "20px", fontSize: "18px" }}>추천캠핑</h1>
             <Sec01 ConDb={dataObj}></Sec01>
           </Wrap>
         </>

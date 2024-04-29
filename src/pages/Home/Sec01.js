@@ -27,11 +27,14 @@ const TextCon = styled.div`
 `;
 
 export const Sec01 = ({ ConDb }) => {
+
   return (
     <OutImg>
       {ConDb &&
         ConDb.map((data) => (
-          <Link key={data.contentId} to={`/detail/${data.contentId}`}>
+          // console.log(data.contentId)
+          
+          <Link key={data.contentId} to={`/detail/${data.doNm}/${data.contentId}`} state={{result:data}}>
             <OutCon>
               <BoxImg>
                 <img src={data.firstImageUrl} alt={data.facltNm}></img>
