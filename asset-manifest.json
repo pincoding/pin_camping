@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/pin_camping/Home.js/static/css/main.900c1a46.css",
-    "main.js": "/pin_camping/Home.js/static/js/main.0e5d2cf9.js",
-    "index.html": "/pin_camping/Home.js/index.html",
-    "main.900c1a46.css.map": "/pin_camping/Home.js/static/css/main.900c1a46.css.map",
-    "main.0e5d2cf9.js.map": "/pin_camping/Home.js/static/js/main.0e5d2cf9.js.map"
+    "main.css": "/pin_camping/static/css/main.900c1a46.css",
+    "main.js": "/pin_camping/static/js/main.c6aa0394.js",
+    "index.html": "/pin_camping/index.html",
+    "main.900c1a46.css.map": "/pin_camping/static/css/main.900c1a46.css.map",
+    "main.c6aa0394.js.map": "/pin_camping/static/js/main.c6aa0394.js.map"
   },
   "entrypoints": [
     "static/css/main.900c1a46.css",
-    "static/js/main.0e5d2cf9.js"
+    "static/js/main.c6aa0394.js"
   ]
 }
