@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home/Home";
 import { Detail } from "./pages/detail/Detail";
@@ -8,7 +8,7 @@ import { Header } from "./components/Header";
 
 export const Router = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -17,6 +17,6 @@ export const Router = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
