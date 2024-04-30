@@ -29,7 +29,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://pincoding.github.io/pin_camping/Home.js",
+  "homepage": "https://pincoding.github.io/pin_camping/",
   "eslintConfig": {
     "extends": [
       "react-app",
