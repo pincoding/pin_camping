@@ -11,7 +11,6 @@ export const GlobalStyled = createGlobalStyle`
         font-family: "Noto Sans KR", sans-serif;
         letter-spacing: -1px;
     }
-    
     img{
         width: 100%;
         display: block;

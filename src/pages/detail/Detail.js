@@ -1,9 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { getbasedList, getsearchList } from "../../api";
-import { useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+// import { useQuery } from "@tanstack/react-query";
+// import { getbasedList, getsearchList } from "../../api";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { IconContants } from "../Home/IconContants";
+import { Loding } from "../../components/Loding";
+import { Helmet } from "react-helmet-async";
 
 const Wrap = styled.div`
   max-width: 500px;
@@ -62,21 +64,30 @@ const BottomCon = styled.div`
     font-weight: 500;
   }
   p {
-    line-height: 24px;
+    line-height: 28px;
   }
 `;
 
 export const Detail = () => {
-  const [compingQuery, setcompingQuery] = useState("");
-  const [submitdata, setsubmitData] = useState("");
+  // const [compingQuery, setcompingQuery] = useState("");
+  // const [submitdata, setsubmitData] = useState("");
+  const AutoScrollTop = useLocation();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [AutoScrollTop]);
 
-  const { id } = useParams();
-  const { doNm } = useParams();
+  // const { id } = useParams();
+  // const { doNm } = useParams();
+  const [loading, setLoading] = useState(true);
   const loc = useLocation();
   // console.log(doNm)
 
   const DetailData = loc?.state?.result;
-  console.log(DetailData);
+  // console.log(DetailData);
   // const { data } = useQuery({
   //   queryKey: [`basedList`],
   //   queryFn: getbasedList,
@@ -91,6 +102,10 @@ export const Detail = () => {
 
   // const dataObj = data && data?.response?.body?.items?.item;
   // console.log(dataObj && dataObj.filter((data) => data.contentId === id));
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const TextDatas = [
     {
@@ -141,29 +156,43 @@ export const Detail = () => {
   ];
 
   return (
-    <Wrap>
-      <IconContants />
-      <Container>
-        <ImgWarp>
-          <img src={`${DetailData?.firstImageUrl}`}></img>
-        </ImgWarp>
-        <TextWrap>
-          {TextDatas.map((data) => (
-            <TextConWrap key={data.id}>
-              <TextLeft>
-                <h1>{data.textname}</h1>
-              </TextLeft>
-              <TextRight>
-                <p>{data.textValue}</p>
-              </TextRight>
-            </TextConWrap>
-          ))}
-          <BottomCon>
-            <h1>캠핑장소개</h1>
-            <p>{DetailData?.featureNm}</p>
-          </BottomCon>
-        </TextWrap>
-      </Container>
-    </Wrap>
+    <>
+      {loading ? (
+        <>
+          <Loding />
+        </>
+      ) : (
+        ""
+      )}
+      <>
+        <Wrap>
+          <Helmet>
+            <title>상세페이지</title>
+          </Helmet>
+          <IconContants />
+          <Container>
+            <ImgWarp>
+              <img src={`${DetailData?.firstImageUrl}`}></img>
+            </ImgWarp>
+            <TextWrap>
+              {TextDatas.map((data) => (
+                <TextConWrap key={data.id}>
+                  <TextLeft>
+                    <h1>{data.textname}</h1>
+                  </TextLeft>
+                  <TextRight>
+                    <p>{data.textValue}</p>
+                  </TextRight>
+                </TextConWrap>
+              ))}
+              <BottomCon>
+                <h1>캠핑장소개</h1>
+                <p>{DetailData?.featureNm}</p>
+              </BottomCon>
+            </TextWrap>
+          </Container>
+        </Wrap>
+      </>
+    </>
   );
 };

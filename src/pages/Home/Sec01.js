@@ -8,7 +8,6 @@ const OutImg = styled.div`
   padding: 10px;
 `;
 const OutCon = styled.div`
-  /* border: 1px solid #e8eaf6; */
   height: 260px;
 `;
 const BoxImg = styled.div`
@@ -24,20 +23,34 @@ const BoxImg = styled.div`
 const TextCon = styled.div`
   line-height: 24px;
   margin-left: 10px;
+  h1 {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+    opacity: 0.7;
+  }
 `;
-
+const NotImg = "https://cdn-icons-png.flaticon.com/512/259/259987.png";
 export const Sec01 = ({ condb }) => {
-
   return (
     <OutImg>
       {condb &&
         condb.map((data) => (
-          // console.log(data.contentId)
-          
-          <Link key={data.contentId} to={`/detail/${data.doNm}/${data.contentId}`} state={{result:data}}>
+          <Link
+            key={data.contentId}
+            to={`/detail/${data.doNm}/${data.contentId}`}
+            // data.doNm(해당지역명) / contentId(아이디값)
+            state={{ result: data }}
+          >
+            {/* state 안에 result 객체에 data값을 저장한다. 이후 불러오기 원하는 페이지에서 useLocation 사용*/}
             <OutCon>
               <BoxImg>
-                <img src={data.firstImageUrl} alt={data.facltNm}></img>
+                <img
+                  src={data.firstImageUrl ? data.firstImageUrl : NotImg}
+                  alt={data.facltNm}
+                ></img>
               </BoxImg>
               <TextCon>
                 <h1>{data.facltNm}</h1>
@@ -49,3 +62,4 @@ export const Sec01 = ({ condb }) => {
     </OutImg>
   );
 };
+//

@@ -10,6 +10,7 @@ import { Loding } from "../../components/Loding";
 import { IconContants } from "./IconContants";
 import { Autoplay } from "swiper/modules";
 import SwiperCore from "swiper";
+import { Helmet } from "react-helmet-async";
 
 const Wrap = styled.div`
   max-width: 500px;
@@ -35,8 +36,6 @@ const Con = styled.div`
 `;
 
 export const Home = () => {
-  const [compingQuery, setcompingQuery] = useState("");
-  const [mainData, setmainData] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,7 +43,7 @@ export const Home = () => {
   }, []);
 
   const { data } = useQuery({
-    queryKey: ["basedList", compingQuery],
+    queryKey: ["basedList"],
     queryFn: getbasedList,
   });
   const dataObj = data && data?.response?.body?.items?.item;
@@ -69,6 +68,9 @@ export const Home = () => {
       ) : (
         <>
           <Wrap>
+            <Helmet>
+              <title>Home</title>
+            </Helmet>
             <ImgWarp>
               <Swiper {...params}>
                 {imgUrl.map((data) => (
@@ -83,7 +85,15 @@ export const Home = () => {
 
             <IconContants />
 
-            <h1 style={{ marginLeft: "20px", fontSize: "18px" }}>추천캠핑</h1>
+            <h1
+              style={{
+                marginLeft: "20px",
+                fontSize: "20px",
+                fontWeight: "700",
+              }}
+            >
+              추천캠핑
+            </h1>
             <Sec01 condb={dataObj}></Sec01>
           </Wrap>
         </>
