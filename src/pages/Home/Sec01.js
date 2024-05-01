@@ -9,11 +9,17 @@ const OutImg = styled.div`
 `;
 const OutCon = styled.div`
   height: 260px;
+  @media screen and (max-width: 430px) {
+    height: 220px;
+  }
 `;
 const BoxImg = styled.div`
   height: 200px;
   overflow: hidden;
   padding: 10px;
+  @media screen and (max-width: 430px) {
+    height: 160px;
+  }
   img {
     object-fit: cover;
     height: 100%;
@@ -54,7 +60,7 @@ export const Sec01 = ({ condb }) => {
                 ></img>
               </BoxImg>
               <TextCon>
-                <h1>{data.facltNm}</h1>
+                <h1>{`${data.facltNm.slice(0, 13)}`}</h1>
                 <p>{data.addr1.slice(0, 16)}...</p>
               </TextCon>
             </OutCon>

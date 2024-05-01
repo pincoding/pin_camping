@@ -1,5 +1,3 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { getbasedList, getsearchList } from "../../api";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
@@ -68,19 +66,18 @@ const BottomCon = styled.div`
 `;
 
 export const Detail = () => {
-  const AutoScrollTop = useLocation();
+  const loc = useLocation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
+      left: 0,
       behavior: "smooth",
     });
-  }, [AutoScrollTop]);
-  // useLocation : AutoScrollTop 상수로 만들어 useEffect 넣은뒤 AutoScrollTop 마운트될때 실행
+  }, [loc]);
+  // useLocation : loc 상수로 만들어 useEffect 넣은뒤 AutoScrollTop 마운트될때 실행
   // 스크롤  스무스하게 탑값 0으로 이동
 
   const [loading, setLoading] = useState(true);
-  const loc = useLocation();
-
   const DetailData = loc?.state?.result;
 
   useEffect(() => {
