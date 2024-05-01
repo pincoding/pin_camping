@@ -5,7 +5,7 @@ import { getsearchList } from "../../api";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { IconContants } from "../Home/IconContants";
-import { SiContentstack } from "react-icons/si";
+
 import { Helmet } from "react-helmet-async";
 
 const Wrap = styled.div`

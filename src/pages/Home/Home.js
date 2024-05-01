@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getbasedList, getsearchList } from "../../api";
+import { getbasedList } from "../../api";
 import { imgUrl } from "../../components/imgUrl";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -47,9 +47,6 @@ export const Home = () => {
     queryFn: getbasedList,
   });
   const dataObj = data && data?.response?.body?.items?.item;
-  // console.log(query && query?.data?.response?.body?.items?.item);
-  console.log(data);
-  console.log(dataObj);
 
   SwiperCore.use([Autoplay]);
 

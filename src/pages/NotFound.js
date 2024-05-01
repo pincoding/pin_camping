@@ -29,7 +29,7 @@ const Container = styled.div`
 const Button = styled.div`
   width: 200px;
   height: 40px;
-  margin-top: 30px;
+  margin-top: 60px;
   font-size: 18px;
   border-radius: 20px;
   display: flex;

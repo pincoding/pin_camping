@@ -7,10 +7,8 @@ const IconWarp = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 20px 0;
-  /* background-color: blue; */
 `;
 const IconCon = styled.div`
-  /* background-color: #98bbeb; */
   border: 1px solid #dbdbdb;
   padding: 20px;
   border-radius: 50%;

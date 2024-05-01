@@ -33,6 +33,7 @@ const TextCon = styled.div`
   }
 `;
 const NotImg = "https://cdn-icons-png.flaticon.com/512/259/259987.png";
+// 예외 처리 이미지
 export const Sec01 = ({ condb }) => {
   return (
     <OutImg>

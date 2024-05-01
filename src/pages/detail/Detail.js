@@ -20,7 +20,6 @@ const Wrap = styled.div`
 const Container = styled.div`
   min-height: 100vh;
   padding: 20px;
-  /* background-color: pink; */
 `;
 const ImgWarp = styled.div`
   height: 200px;
@@ -32,7 +31,6 @@ const ImgWarp = styled.div`
   }
 `;
 const TextWrap = styled.div`
-  /* background-color: gray; */
   margin-top: 10px;
 `;
 const TextConWrap = styled.div`
@@ -65,43 +63,25 @@ const BottomCon = styled.div`
   }
   p {
     line-height: 28px;
+    opacity: 0.7;
   }
 `;
 
 export const Detail = () => {
-  // const [compingQuery, setcompingQuery] = useState("");
-  // const [submitdata, setsubmitData] = useState("");
   const AutoScrollTop = useLocation();
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      left: 0,
       behavior: "smooth",
     });
   }, [AutoScrollTop]);
+  // useLocation : AutoScrollTop 상수로 만들어 useEffect 넣은뒤 AutoScrollTop 마운트될때 실행
+  // 스크롤  스무스하게 탑값 0으로 이동
 
-  // const { id } = useParams();
-  // const { doNm } = useParams();
   const [loading, setLoading] = useState(true);
   const loc = useLocation();
-  // console.log(doNm)
 
   const DetailData = loc?.state?.result;
-  // console.log(DetailData);
-  // const { data } = useQuery({
-  //   queryKey: [`basedList`],
-  //   queryFn: getbasedList,
-  // });
-
-  // const query = useQuery({
-  //   queryKey: ["searchList", doNm],
-  //   queryFn: getsearchList,
-  // });
-
-  // console.log(data);
-
-  // const dataObj = data && data?.response?.body?.items?.item;
-  // console.log(dataObj && dataObj.filter((data) => data.contentId === id));
 
   useEffect(() => {
     setLoading(false);
@@ -172,7 +152,10 @@ export const Detail = () => {
           <IconContants />
           <Container>
             <ImgWarp>
-              <img src={`${DetailData?.firstImageUrl}`}></img>
+              <img
+                src={`${DetailData?.firstImageUrl}`}
+                alt={DetailData?.facltNm}
+              ></img>
             </ImgWarp>
             <TextWrap>
               {TextDatas.map((data) => (
